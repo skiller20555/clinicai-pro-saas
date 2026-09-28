@@ -1,0 +1,47 @@
+# React Frontend
+
+This directory contains the React + Vite frontend for ClinicAI Pro SaaS.
+
+## Planned structure
+
+```text
+frontend/
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── index.css
+│   └── components/
+├── public/
+├── index.html
+├── package.json
+├── vite.config.js
+├── postcss.config.js
+├── tailwind.config.js
+└── .env.example
+```
+
+## Initial frontend goals
+
+- dashboard shell
+- authentication UI
+- sidebar navigation
+- patient and appointment listings
+- financial summary widgets
+- responsive medical SaaS design
+
+## Suggested routes
+
+- `/login`
+- `/dashboard`
+- `/patients`
+- `/appointments`
+- `/billing`
+- `/ai-assistant`
+- `/settings`
+
+## Design language
+
+- modern healthcare UI
+- white and medical blue palette
+- accessible contrast ratios
+- tables, cards, search, filters, and modals
