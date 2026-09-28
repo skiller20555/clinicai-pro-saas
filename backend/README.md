@@ -1,82 +1,44 @@
-# Database Schema Foundation
+# ClinicAI Pro SaaS
 
-## Overview
+This repository contains the foundation for a multi-tenant healthcare SaaS platform built for cPanel-compatible hosting.
 
-The database layer supports multi-tenant clinic administration, patient records, appointment tracking, billing, dental workflows, and AI audit logs.
+## Current implementation status
 
-## Required entities
+We have completed the foundational repository structure and are now implementing the core Laravel backend and React frontend foundation.
 
-### Authentication and authorization
-- users
-- roles
-- permissions
-- model_has_roles
-- role_has_permissions
+## Included in the foundation
 
-### SaaS and clinic data
-- clinics
-- subscriptions
-- plans
-- settings
+- Laravel app conventions for the backend API
+- RBAC models for roles, permissions, and clinic ownership
+- migration skeleton for the first production-critical tables
+- API routes for auth and clinic management
+- React dashboard shell and healthcare analytics widgets
 
-### Patients and records
-- patients
-- medical_records
-- attachments
-- patient_timeline_entries
+## Local development
 
-### Appointments and availability
-- appointments
-- availability
-- appointment_statuses
+### Backend
 
-### Dental workflow
-- teeth
-- treatments
-- treatment_plans
-- dental_chart_records
-
-### Billing
-- invoices
-- payments
-- expenses
-- invoice_items
-
-### AI layer
-- ai_requests
-- ai_logs
-- ai_usage
-
-### System and audit
-- notifications
-- audit_logs
-
-## Design rules
-
-- use foreign keys and proper relationships
-- store clinic_id on tenant-scoped records
-- use soft deletes on business entities
-- index status, clinic_id, patient_id, doctor_id, date fields
-- use audit tables for state-changing actions
-
-## Sample relational strategy
-
-```text
-clinics 1---* users
-clinics 1---* patients
-patients 1---* appointments
-patients 1---* medical_records
-patients 1---* attachments
-patients 1---* invoices
-clinics 1---* subscriptions
+```bash
+cd backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
 ```
 
-## Audit expectations
+### Frontend
 
-Core actions to log:
-- login and logout
-- user privilege changes
-- patient record creation and edits
-- billing and payment changes
-- AI assistant record generation
-- deletion or archival of patient data
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## Security note
+
+AI-generated content must be shown with the warning label:
+
+`AI Generated Assistance - Requires Professional Review`
+
+This must be treated as assistant-generated guidance only and never as a final diagnosis.
